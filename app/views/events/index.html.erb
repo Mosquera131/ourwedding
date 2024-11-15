@@ -18,6 +18,32 @@
   <% end %>
 </div>
 
+
+
+<div class="w-full" >
+  <% if notice.present? %>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+  <h1 class="font-bold text-4xl">Eventos activos</h1>
+  <% content_for :title, "Events" %>
+
+ 
+<div id="event_active" class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 p-4">
+  <% @event_active .each do |event| %>
+    <div class="bg-white shadow-lg rounded-lg p-6 hover:shadow-2xl transition duration-300 ease-in-out">
+      <%= render event %>
+      <p class="mt-4">
+        <%= link_to "Show this event", event, class: "ml-2 rounded-lg py-2 px-4 bg-green-500 text-white hover:bg-blue-600 font-medium" %>
+      </p>
+    </div>
+  <% end %>
+</div>
+
+
+
+
+
 <div class="flex justify-between items-center">
 <%= link_to "New event", new_event_path, class: "rounded-lg py-4 px-5 bg-blue-600 text-white block font-medium" %>
 </div>
